@@ -2,10 +2,11 @@
 from employee_events.query_base import QueryBase
 
 # Import dependencies for sql execution
-from sqlite3 import connect
-from pathlib import Path
-from functools import wraps
-import pandas as pd
+from sqlite3 import connect  # noqa: F401
+from pathlib import Path  # noqa: F401
+from functools import wraps  # noqa: F401
+import pandas as pd  # noqa: F401
+
 
 # Create a subclass of QueryBase
 # called  `Team`
@@ -20,13 +21,13 @@ class Team(QueryBase):
     # This method should return
     # a list of tuples from an sql execution
     def names(self) -> list[tuple]:
-        
+
         # Query 5
         # Write an SQL query that selects
         # the team_name and team_id columns
         # from the team table for all teams
         # in the database
-        sql_query_5 = f"""select team_name, team_id
+        sql_query_5 = """select team_name, team_id
             from team
         """
         return self.query(sql_query_5)
@@ -47,8 +48,7 @@ class Team(QueryBase):
             from team
             where team_id = {id}
         """
-        return self.query(sql_query_6)  
-
+        return self.query(sql_query_6)
 
     # Below is method with an SQL query
     # This SQL query generates the data needed for
@@ -57,7 +57,7 @@ class Team(QueryBase):
     # so when it is called, a pandas dataframe
     # is returns containing the execution of
     # the sql query
-    #### YOUR CODE HERE
+
     def model_data(self, id):
 
         return self.pandas_query(f"""
