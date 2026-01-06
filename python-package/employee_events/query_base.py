@@ -2,6 +2,7 @@
 import pandas as pd
 from employee_events.sql_execution import QueryMixin
 
+
 # Define a class called QueryBase
 # Use inheritance to add methods
 # for querying the employee_events database.
@@ -15,14 +16,12 @@ class QueryBase(QueryMixin):
     # no passed arguments
     def names(self) -> list[tuple]:
         return []
-        
         # Return an empty list
-
 
     # Define an `event_counts` method
     # that receives an `id` argument
     # This method should return a pandas dataframe
-    def event_counts(self, id: int) -> pd.DataFrame:     
+    def event_counts(self, id: int) -> pd.DataFrame:
         # QUERY 1
         # Write an SQL query that groups by `event_date`
         # and sums the number of positive and negative events
@@ -40,8 +39,6 @@ class QueryBase(QueryMixin):
             order by event_date
         """
         return self.pandas_query(sql_query_1)
-            
-    
 
     # Define a `notes` method that receives an id argument
     # This function should return a pandas dataframe
